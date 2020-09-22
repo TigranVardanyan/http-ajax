@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
-axios.interceptors.request.use(request => {
+let request = axios.interceptors.request.use(request => {
   console.log(request);
   //you can edit config before return it
   return request;
@@ -14,7 +14,9 @@ axios.interceptors.request.use(request => {
   return Promise.reject((error))
 })
 
-axios.interceptors.response.use(response => {
+axios.interceptors.request.eject(request);
+
+let response = axios.interceptors.response.use(response => {
   console.log(response);
   //you can edit config before return it
   return response;
@@ -22,6 +24,8 @@ axios.interceptors.response.use(response => {
   console.log(error);
   return Promise.reject((error))
 })
+
+axios.interceptors.response.eject(response);
 
 ReactDOM.render( <App />, document.getElementById( 'root' ) );
 registerServiceWorker();
