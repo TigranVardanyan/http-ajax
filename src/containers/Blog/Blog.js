@@ -16,7 +16,7 @@ class Blog extends Component {
                 to={'/'}
                 exact
               >
-                Home
+                Posts
               </NavLink>
             </li>
             <li>
