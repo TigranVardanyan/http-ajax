@@ -22,7 +22,7 @@ class Posts extends Component {
                }
              }
            )
-           this.setState({posts:updatedPosts});
+           this.setState({posts: updatedPosts});
            //console.log(response)
          })
          .catch(error => {
@@ -32,15 +32,18 @@ class Posts extends Component {
   }
 
   postSelectedHandler = (id) => {
-    this.setState({selectedPostId:id})
+    this.setState({selectedPostId: id})
   }
 
-  render () {
-    let posts = <p style={{textAlign:'center'}}>Somthing went wrong</p>;
+  render() {
+    let posts = <p style={{textAlign: 'center'}}>Somthing went wrong</p>;
     if (!this.state.error) {
       posts = this.state.posts.map(
         post => {
-          return <Link to={post.id} key={post.id}>
+          return <Link
+            to={'/' + post.id}
+            key={post.id}
+          >
             <Post
               title={post.title}
               author={post.author}
@@ -50,7 +53,6 @@ class Posts extends Component {
         }
       )
     }
-
     return (
       <section className={'Posts'}>
         {posts}
