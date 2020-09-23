@@ -27,18 +27,20 @@ class NewPost extends Component {
       data
     ).then(response => {
       console.log(response)
-      this.setState({submitted:true})
+      //this.props.history.push('/posts') // redirect with histort
+      //this.props.history.replace('/posts') // also you can use replace instead of push to prevent go back
+      this.setState({submitted:true}) // redirect with Redirect and changing state
     })
   }
 
   render() {
-    let redredirect = null;
-    if (this.state.submitted) {
-      redredirect = <Redirect to={'/posts'}/>
-    }
+    ////let redredirect = null;
+    ////if (this.state.submitted) {
+    //{/*  redredirect = <Redirect to={'/posts'}/>*/}
+    //{/*}*/}
     return (
       <div className="NewPost">
-        {redredirect}
+        {/*{redredirect}*/}
         <h1>Add a Post</h1>
         <label>Title</label>
         <input type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})}/>
