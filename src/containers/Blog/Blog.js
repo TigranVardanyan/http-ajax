@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
-
+import {Route} from "react-router";
 import './Blog.css';
 import Posts from './Posts/Posts'
 
@@ -12,27 +12,20 @@ class Blog extends Component {
 
 
   render () {
-
-
         return (
             <div className={"Blog"}>
               <header>
                 <ul>
                   <li>
-                    <a href="">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
-                    <a href="">New post</a>
+                    <a href="/new-post">New post</a>
                   </li>
                 </ul>
               </header>
-                <Posts/>
-                {/*<section>*/}
-                {/*    <FullPost id={this.state.selectedPostId}/>*/}
-                {/*</section>*/}
-                {/*<section>*/}
-                {/*    <NewPost />*/}
-                {/*</section>*/}
+              <Route path={'/'} exact render={() => <h1>Home</h1>}/>
+              <Route path={'/'} render={() => <h1>Home 2</h1>}/>
             </div>
         );
     }
