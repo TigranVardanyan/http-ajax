@@ -13,6 +13,9 @@ class NewPost extends Component {
   }
 
   componentDidMount() {
+    //if ('userauth') { // type of Guard
+    //  this.props.history.replace('/posts');
+    //}
     console.log(this.props)
   }
 
@@ -27,17 +30,17 @@ class NewPost extends Component {
       data
     ).then(response => {
       console.log(response)
-      //this.props.history.push('/posts') // redirect with histort
+      this.props.history.push('/posts') // redirect with histort
       //this.props.history.replace('/posts') // also you can use replace instead of push to prevent go back
-      this.setState({submitted:true}) // redirect with Redirect and changing state
+      //this.setState({submitted:true}) // redirect with Redirect and changing state
     })
   }
 
   render() {
-    ////let redredirect = null;
-    ////if (this.state.submitted) {
-    //{/*  redredirect = <Redirect to={'/posts'}/>*/}
-    //{/*}*/}
+    //let redredirect = null;
+    //if (this.state.submitted) {
+    {/*  redredirect = <Redirect to={'/posts'}/>*/}
+    {/*}*/}
     return (
       <div className="NewPost">
         {/*{redredirect}*/}
